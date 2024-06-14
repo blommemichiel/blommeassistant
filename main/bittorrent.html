@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet" />
+    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet" />
+    <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet" />
+    <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet" />
+    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet" />
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        :root {
+            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
+
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
+    <div class="page">
+        <script data-active-page="bittorrent.html" src="./dist/js/navbar.js"></script>
+
+        <div class="page-wrapper">
+            <!-- Page header -->
+            <div class="page-header d-print-none">
+                <div class="container-xl">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <!-- Page pre-title -->
+                            <div class="page-pretitle">
+                                Bittorrent
+                            </div>
+                            <h2 class="page-title">
+                                Bittorrent dashboard
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="page-body">
+                    <div class="container-xl">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="accordion" id="accordion-example">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-1">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true">
+                                  Current Torrents
+                                </button>
+                              </h2>
+                              <div id="collapse-1" class="accordion-collapse collapse show" data-bs-parent="#accordion-example">
+                                <div class="accordion-body pt-0">
+                                    <div class="row g-2 align-items-center">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="table-responsive">
+                                                    <table class="table table-vcenter card-table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Size</th>
+                                                                <th>Progress</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="torrent-current-table-body">
+                                                            <!-- Rows will be inserted here by JavaScript -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false">
+                                  Downloaded Torrents
+                                </button>
+                              </h2>
+                              <div id="collapse-2" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                <div class="accordion-body pt-0">
+                                    <div class="row g-2 align-items-center">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="table-responsive">
+                                                    <table class="table table-vcenter card-table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Size</th>
+                                                                <th>Progress</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="torrent-download-table-body">
+                                                            <!-- Rows will be inserted here by JavaScript -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false">
+                                  Error Torrents
+                                </button>
+                              </h2>
+                              <div id="collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                <div class="accordion-body pt-0">
+                                    <div class="row g-2 align-items-center">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="table-responsive">
+                                                    <table class="table table-vcenter card-table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Size</th>
+                                                                <th>Progress</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="torrent-error-table-body">
+                                                            <!-- Rows will be inserted here by JavaScript -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+            
+                <!-- Page footer or other content -->
+                <div id="footer"></div>
+            </div>
+            
+                <!-- Page body -->
+                <div id="footer"></div>
+            </div>
+            <!-- Libs JS -->
+            <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+            <script src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+            <script src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+            <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+            <!-- Tabler Core -->
+            <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+            <script src="./dist/js/demo.min.js?1692870487" defer></script>
+            <script src="./dist/js/card.js"></script>
+            <script src="./dist/js/bittorrent.js"></script>
+</body>
+
+</html>

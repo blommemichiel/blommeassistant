@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>BlommeAssistant - Torrent Downloader</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
+    <div class="page">
+      <!-- Navbar -->
+      <script data-active-page="downloader.html" src="./dist/js/navbar.js"></script>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Torrent Downloader
+                </div>
+                <h2 class="page-title">
+                  Main Search
+                </h2>
+                <p>Fill in the search bar for searching all torrent sites</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+              <div class="row g-2 align-items-center">
+                <div class="col">
+                  <form id="searchForm" action="" method="get" autocomplete="off" novalidate style="padding: 0%;">
+                    <div class="input-icon">
+                      <span class="input-icon-addon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                          <path d="M21 21l-6 -6" />
+                        </svg>
+                      </span>
+                      <input type="text" id="searchInput" class="form-control" placeholder="Search…" aria-label="Search in website">
+                    </div>
+                  </form>
+                </div>
+                <div class="search-results" id="searchResults"></div>
+              </div>
+              <div class="progress" id="loadingBar" style="display: none;">
+                <div class="progress-bar progress-bar-indeterminate bg-green"></div>
+              </div>
+              <div class="row mt-4" id="searchResults">
+                <!-- Search results will be dynamically inserted here -->
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="modal-simple" tabindex="-1" role="dialog" aria-labelledby="modal-simple-title" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-simple-title">Download Confirmation</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p id="downloadConfirmationText"></p>
+                  <div>
+                    <label class="form-check">
+                      <input class="form-check-input" type="radio" name="radios" data-value="movie" checked>
+                      <span class="form-check-label">Movie</span>
+                    </label>
+                    <label class="form-check">
+                      <input class="form-check-input" type="radio" name="radios" data-value="tvshow">
+                      <span class="form-check-label">TV Show</span>
+                    </label>
+                  </div>                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary" id="confirmDownloadButton">Confirm Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+    <script src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+    <script src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+    <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+    <script src="./dist/js/demo.min.js?1692870487" defer></script>
+    <script src="./dist/js/torrentdownloader.js"></script>
+    <script src="./dist/js/card.js"></script>
+  </body>
+</html>
