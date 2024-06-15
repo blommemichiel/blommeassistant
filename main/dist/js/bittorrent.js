@@ -24,6 +24,16 @@ async function getTorrentInfo(apiUrl) {
         downloadingTorrents.sort((a, b) => new Date(b.completion_on) - new Date(a.completion_on));
         missingFilesTorrents.sort((a, b) => new Date(b.completion_on) - new Date(a.completion_on));
 
+        // Check for no results and add a default entry if necessary
+        if (pausedUpTorrents.length === 0) {
+            pausedUpTorrents.push({ name: 'No downloaded torrents...', size: 0, progress: 0, completion_on: '' });
+        }
+        if (downloadingTorrents.length === 0) {
+            downloadingTorrents.push({ name: 'No torrents currently downloading...', size: "", progress: "", completion_on: '' });
+        }
+        if (missingFilesTorrents.length === 0) {
+            missingFilesTorrents.push({ name: 'No torrents with errors...', size: 0, progress: 0, completion_on: '' });
+        }
 
         // Assuming these functions will handle displaying the data in your UI
         populateDownloadTable(pausedUpTorrents, 'Paused Up Torrents');
@@ -34,7 +44,6 @@ async function getTorrentInfo(apiUrl) {
         console.error('An error occurred while fetching torrent info:', error);
     }
 }
-
 
 function populateDownloadTable(torrents) {
     const tableBody = document.getElementById('torrent-download-table-body');
@@ -65,8 +74,9 @@ function populateDownloadTable(torrents) {
 
       tableBody.appendChild(row);
     });
-  }
-  function populateCurrentTable(torrents) {
+}
+
+function populateCurrentTable(torrents) {
     const tableBody = document.getElementById('torrent-current-table-body');
     tableBody.innerHTML = '';
     torrents.forEach(torrent => {
@@ -95,8 +105,9 @@ function populateDownloadTable(torrents) {
 
       tableBody.appendChild(row);
     });
-  }
-  function populateErrorTable(torrents) {
+}
+
+function populateErrorTable(torrents) {
     const tableBody = document.getElementById('torrent-error-table-body');
     tableBody.innerHTML = '';
     torrents.forEach(torrent => {
@@ -125,17 +136,19 @@ function populateDownloadTable(torrents) {
 
       tableBody.appendChild(row);
     });
-  }
-  function formatSize(size) {
+}
+
+function formatSize(size) {
     // Format size as appropriate, e.g., bytes to KB/MB/GB
     const i = size == 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
     return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'KB', 'MB', 'GB', 'TB'][i];
-  }
-  const cleanTitle = (title) => {
+}
+
+const cleanTitle = (title) => {
     // Remove known tags and unnecessary info
     return title.replace(/\[.*?\]|\(.*?\)|\b\d{4}\b|\.1080p|\.BluRay|\.WEB-DL|\.WEBRip|\.x264|\.mkv|\.Opus|\.5\.1|\.YTS\.MX|\.ExKinoRay|\.FlyingDutchman/g, '')
                 .trim();
-  };
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     // Example usage with the API URL
@@ -145,8 +158,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         getTorrentInfo(apiUrl);
     }, 5000);
-
 });
-
-// Example usage with the API URL
-const apiUrl = 'http://192.168.0.152:8009/api/v1';

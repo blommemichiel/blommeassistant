@@ -138,6 +138,7 @@ function setActiveNavItem(activePage) {
     setActiveNavItem(activePage);
   });
   
+
 console.log(activePage);
 
 document.body.insertAdjacentHTML("afterbegin", navbarItems);
