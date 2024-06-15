@@ -12,6 +12,7 @@ from routers.home_router import router as home_router
 from routers.v1.search_url_router import router as search_url_router
 from routers.v1.download_router import router as download_router
 from routers.v1.notification_router import router as notification_router
+from routers.v1.video_router import router as video_router
 from helper.uptime import getUptime
 from mangum import Mangum
 from math import ceil
@@ -67,6 +68,7 @@ app.include_router(site_list_router, prefix="/api/v1/sites")
 app.include_router(search_url_router, prefix="/api/v1/search_url")
 app.include_router(download_router, prefix="/api/v1/torrent")
 app.include_router(notification_router, prefix="/api/v1/notifications")
+app.include_router(video_router, prefix="/api/v1/video")
 app.include_router(home_router, prefix="")
 
 handler = Mangum(app)

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+        <!-- CSS files -->
+        <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
+        <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
+        <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
+        <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
+        <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+        <style>
+          @import url('https://rsms.me/inter/inter.css');
+          :root {
+              --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+          }
+          body {
+              font-feature-settings: "cv03", "cv04", "cv11";
+          }
+        </style>
+      </head>
+<body>
+    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
+    <div class="page">
+        <script data-active-page="camera.html" src="./dist/js/navbar.js"></script>
+
+        <div class="page-wrapper">
+            <!-- Page header -->
+            <div class="page-header d-print-none">
+                <div class="container-xl">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <!-- Page pre-title -->
+                            <div class="page-pretitle">
+                                Empty page
+                            </div>
+                            <h2 class="page-title">
+                                Empty page
+                            </h2>
+                            <p>Edit this page</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page body -->
+            <div class="page-body">
+                <div class="container-xl">
+                    <img id="streamed-img" src="" alt="Loading...">
+                    <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            function updateImage() {
+                            const img = document.getElementById('streamed-img');
+                            const timestamp = new Date().getTime(); // Generate a unique timestamp
+                            img.src = `http://192.168.0.152:8009/api/v1/video/take_screenshot?timestamp=${timestamp}`;
+                            console.log('Image updated');
+                        }
+                            updateImage();
+                            if(img.src != ""){
+                                const loading = document.getElementById('spinner-border')
+                                loading.style("display:none;")
+                            }
+                            setInterval(updateImage, 5000); 
+                        });
+                    </script>
+                </div>
+            <div id="footer"></div>
+        </div>
+    
+        <!-- Libs JS -->
+        <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+        <script src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+        <script src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+        <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Tabler Core -->
+        <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+        <script src="./dist/js/demo.min.js?1692870487" defer></script>
+        <script src="./dist/js/card.js"></script>
+</body>
+
+</html>
